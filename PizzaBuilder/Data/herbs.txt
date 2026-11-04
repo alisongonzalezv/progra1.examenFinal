@@ -1,7 +1,7 @@
 Basil: 120
 Parsley: 80
 Oregano: 100
-Thyme: 1
+Thyme: 0
 Rosemary: 45
 Cilantro: 90
 Sage: 30
