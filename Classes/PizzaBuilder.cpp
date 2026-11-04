@@ -17,27 +17,45 @@ bool PizzaBuilder::AddTomato(const std::string& name, std::string& message) {
 }
 
 bool PizzaBuilder::AddCheese(const std::string& name, std::string& message) {
+#ifdef HABILITAR_QUESO
     if (finished_) { message = "La pizza ya está terminada."; return false; }
     IngredientSelector<CheeseRepository> selector(cheeseRepo_, "queso");
     const AddResult result = selector.AddIngredientToPizza(name, selectedCheeses_);
     message = result.message;
     return result.ok;
+#else
+    (void)name;
+    message = "Queso pendiente.";
+    return false;
+#endif
 }
 
 bool PizzaBuilder::AddMeat(const std::string& name, std::string& message) {
+#ifdef HABILITAR_CARNE
     if (finished_) { message = "La pizza ya está terminada."; return false; }
     IngredientSelector<MeatsRepository> selector(meatsRepo_, "carne");
     const AddResult result = selector.AddIngredientToPizza(name, selectedMeats_);
     message = result.message;
     return result.ok;
+#else
+    (void)name;
+    message = "Carne pendiente.";
+    return false;
+#endif
 }
 
 bool PizzaBuilder::AddHerb(const std::string& name, std::string& message) {
+#ifdef HABILITAR_HIERBA
     if (finished_) { message = "La pizza ya está terminada."; return false; }
     IngredientSelector<HerbsRepository> selector(herbsRepo_, "hierba");
     const AddResult result = selector.AddIngredientToPizza(name, selectedHerbs_);
     message = result.message;
     return result.ok;
+#else
+    (void)name;
+    message = "Hierba pendiente.";
+    return false;
+#endif
 }
 
 void PizzaBuilder::Finish() {

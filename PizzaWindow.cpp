@@ -149,9 +149,24 @@ void PizzaWindow::refrescar()
     };
 
     llenarCatalogo(ui.listTomates, pizza_->Tomatoes().Names(), cantidadesDe(pizza_->Tomatoes()));
+#ifdef HABILITAR_QUESO
     llenarCatalogo(ui.listQuesos, pizza_->Cheeses().Names(), cantidadesDe(pizza_->Cheeses()));
+#else
+    ui.listQuesos->clear();
+    ui.btnAgregarQueso->setEnabled(false);
+#endif
+#ifdef HABILITAR_CARNE
     llenarCatalogo(ui.listCarnes, pizza_->Meats().Names(), cantidadesDe(pizza_->Meats()));
+#else
+    ui.listCarnes->clear();
+    ui.btnAgregarCarne->setEnabled(false);
+#endif
+#ifdef HABILITAR_HIERBA
     llenarCatalogo(ui.listHierbas, pizza_->Herbs().Names(), cantidadesDe(pizza_->Herbs()));
+#else
+    ui.listHierbas->clear();
+    ui.btnAgregarHierba->setEnabled(false);
+#endif
 
     llenarElegidos(ui.elegidosTomates, pizza_->SelectedTomatoes());
     llenarElegidos(ui.elegidosQuesos, pizza_->SelectedCheeses());

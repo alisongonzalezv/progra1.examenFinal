@@ -8,6 +8,11 @@
 #include "MeatsRepository.h"
 #include "TomatoesRepository.h"
 
+
+#define HABILITAR_QUESO
+// #define HABILITAR_CARNE
+// #define HABILITAR_HIERBA
+
 class PizzaBuilder {
 public:
     PizzaBuilder();
