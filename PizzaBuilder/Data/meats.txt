@@ -1,0 +1,8 @@
+Pepperoni: 299
+Bacon: 179
+Chicken: 219
+Shrimp: 150
+Mignon: 80
+Ham: 160
+Sausage: 0
+Prosciutto: 90
