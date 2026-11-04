@@ -2,14 +2,9 @@
 
 #include <string>
 #include <vector>
+#include "IngredientRepository.h"
 
-class MeatsRepository {
+class MeatsRepository : public IngredientRepository {
 public:
     MeatsRepository();
-
-    const std::vector<std::string>& Names() const;
-    int GetAvailableQuantity(const std::string& name) const;
-
-private:
-    std::vector<std::string> names_;
 };
